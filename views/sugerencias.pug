@@ -1,0 +1,90 @@
+extends layout/index.pug
+
+block contenido
+  main.container.mt-5.mb-5
+    .row
+      .col-lg-8.mx-auto
+        h1.text-center.mb-4= pagina
+        p.text-center.lead Déjanos tus comentarios, sugerencias o solicita información sobre nuestros viajes
+
+        if errores && errores.length > 0
+          .alert.alert-danger.alert-dismissible.fade.show(role="alert")
+            h5.alert-heading ¡Atención!
+            ul.mb-0
+              each error in errores
+                li= error.mensaje
+            button.btn-close(type="button" data-bs-dismiss="alert" aria-label="Close")
+
+        .card.shadow-sm.mb-5
+          .card-body.p-4
+            form(action="/sugerencias" method="POST")
+              .mb-3
+                label.form-label(for="nombre")
+                  i.fas.fa-user.me-2
+                  | Nombre Completo
+                input.form-control.form-control-lg(
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  value=nombre || ''
+                  placeholder="Ingresa tu nombre completo"
+                  required
+                )
+              
+              .mb-3
+                label.form-label(for="correo")
+                  i.fas.fa-envelope.me-2
+                  | Correo Electrónico
+                input.form-control.form-control-lg(
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  value=correo || ''
+                  placeholder="tu@email.com"
+                  required
+                )
+              
+              .mb-4
+                label.form-label(for="mensaje")
+                  i.fas.fa-comment.me-2
+                  | Mensaje o Sugerencia
+                textarea.form-control.form-control-lg(
+                  id="mensaje"
+                  name="mensaje"
+                  rows="5"
+                  placeholder="Escribe aquí tu mensaje, comentario o solicitud de información..."
+                  required
+                )= mensaje || ''
+              
+              .d-grid
+                button.btn.btn-success.btn-lg(type="submit")
+                  i.fas.fa-paper-plane.me-2
+                  | Enviar Mensaje
+
+  if sugerencias && sugerencias.length > 0
+    section.mt-5.py-5.bg-light
+      .container
+        .row
+          .col-12
+            h2.text-center.mb-5 Lo que Dicen Nuestros Clientes
+        
+        .row
+          each sug in sugerencias
+            .col-md-6.col-lg-4.mb-4
+              .card.h-100.shadow-sm.border-0
+                .card-body.testimoniales
+                  p.card-text.mb-4= sug.mensaje
+                  hr
+                  footer.mt-3
+                    strong.d-block.text-primary= sug.nombre
+                    small.text-muted
+                      i.fas.fa-envelope.me-2
+                      = sug.correo
+  else
+    section.mt-5.py-5.bg-light
+      .container
+        .row
+          .col-12.text-center
+            .alert.alert-info.d-inline-block
+              i.fas.fa-info-circle.me-2
+              | Aún no hay testimonios. ¡Sé el primero en compartir tu experiencia!

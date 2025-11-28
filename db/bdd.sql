@@ -1,0 +1,10 @@
+INSERT INTO `viajes` (`id`, `titulo`, `precio`, `fecha_ida`, `fecha_vuelta`, `imagen`, `descripcion`, `disponibles`, `slug`) VALUES
+(1, 'Italia', '$50000', '2023-06-30', '2023-06-30', 'destinos_roma.jpg', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque quis nisi vel, accumsan eleifend tortor.', '8', 'italia');
+INSERT INTO `viajes` (`id`, `titulo`, `precio`, `fecha_ida`, `fecha_vuelta`, `imagen`, `descripcion`, `disponibles`, `slug`) VALUES
+(2, 'Canadá', '$60000', '2023-07-19', '2023-07-19', 'destinos_canada_ln.jpg', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque quis nisi vel, accumsan eleifend tortor.', '12', 'canada');
+INSERT INTO `viajes` (`id`, `titulo`, `precio`, `fecha_ida`, `fecha_vuelta`, `imagen`, `descripcion`, `disponibles`, `slug`) VALUES
+(3, 'Grecia', '$40000', '2023-08-29', '2023-09-15', 'destinos_grecia.jpg', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque quis nisi vel, accumsan eleifend tortor.', '15', 'grecia');
+INSERT INTO `viajes` (`id`, `titulo`, `precio`, `fecha_ida`, `fecha_vuelta`, `imagen`, `descripcion`, `disponibles`, `slug`) VALUES
+(4, 'Inglaterra', '$8000', '2023-09-22', '2023-10-03', 'destinos_londres.jpg', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque quis nisi vel, accumsan eleifend tortor.', '20', 'inglaterra'),
+(5, 'Río de Janeiro', '$50000', '2023-04-16', '2023-04-25', 'destinos_rio.jpg', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque quis nisi vel, accumsan eleifend tortor.', '10', 'rio-de-janeiro'),
+(6, 'Francia', '$75000', '2023-04-03', '2023-04-10', 'destinos_paris.jpg', 'Praesent tincidunt ante at justo semper volutpat. Sed risus neque, scelerisque quis nisi vel, accumsan eleifend tortor.', '18', 'francia');

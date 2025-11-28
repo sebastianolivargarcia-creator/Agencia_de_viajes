@@ -1,0 +1,22 @@
+extends layout/index.pug
+
+block contenido
+  main.container.mt-5.mb-5
+    .row
+      .col-lg-8.mx-auto.text-center
+        .py-5
+          h1.display-1.text-primary 404
+          h2.mb-4 Página no encontrada
+          p.lead Lo sentimos, la página que buscas no existe o ha sido movida.
+          
+          .mt-5
+            a.btn.btn-primary.btn-lg.me-3(href="/") 
+              i.fas.fa-home.me-2
+              | Ir al Inicio
+            a.btn.btn-outline-secondary.btn-lg(href="/viajes")
+              i.fas.fa-plane.me-2
+              | Ver Viajes
+          
+          .mt-5
+            img(src="/img/nosotros.jpg" alt="Error 404" class="img-fluid rounded shadow" style="max-width: 500px; opacity: 0.7;")
+

@@ -1,0 +1,42 @@
+extends layout/index.pug
+
+block contenido
+  main.container.mt-5.mb-5
+    .row
+      .col-lg-10.mx-auto
+        .card.shadow-lg
+          img.card-img-top(src=`/img/${viaje.imagen}` alt=viaje.titulo style="height: 450px; object-fit: cover;")
+          .card-body.p-4
+            h1.card-title.mb-4= viaje.titulo
+            
+            .row.mb-4
+              .col-md-6
+                h5
+                  i.fas.fa-calendar-alt.me-2.text-primary
+                  | Fechas del Viaje
+                p.ms-4
+                  strong Ida:
+                  |  #{new Date(viaje.fecha_ida).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                p.ms-4
+                  strong Regreso:
+                  |  #{new Date(viaje.fecha_vuelta).toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+              
+              .col-md-6
+                h5
+                  i.fas.fa-info-circle.me-2.text-primary
+                  | Información
+                p.ms-4
+                  strong Disponibles:
+                  |  #{viaje.disponibles} lugares
+                p.ms-4
+                  strong Precio:
+                  span.text-success.fs-4.ms-2= viaje.precio
+            
+            hr.my-4
+            
+            h5.mb-3 Descripción del Viaje
+            p.lead= viaje.descripcion
+            
+            .d-grid.gap-2.mt-5
+              a.btn.btn-success.btn-lg(href="/sugerencias") Solicitar Información
+              a.btn.btn-outline-secondary(href="/viajes") Ver Otros Viajes

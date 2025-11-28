@@ -1,0 +1,55 @@
+extends layout/index.pug
+
+block contenido
+  if clase === 'home'
+    .slider
+      em ¡Vive la aventura!
+      h1 Descubre el mundo con nosotros
+
+  main.container.mt-5
+    .row
+      .col-12
+        h2.text-center.mb-5 Nuestros Próximos Viajes
+    
+    if viajes && viajes.length
+      .row
+        each viaje in viajes
+          .col-md-6.col-lg-4.mb-4
+            .card.h-100.shadow-sm
+              img.card-img-top(src=`/img/${viaje.imagen}` alt=viaje.titulo style="height: 250px; object-fit: cover;")
+              .card-body
+                h3.card-title= viaje.titulo
+                p.card-text
+                  i.fas.fa-calendar-alt.me-2
+                  | #{new Date(viaje.fecha_ida).toLocaleDateString('es-ES')}
+                p.card-text
+                  i.fas.fa-dollar-sign.me-2
+                  strong= viaje.precio
+                p.card-text= viaje.descripcion
+                a.btn.btn-success.w-100(href=`/viajes/${viaje.slug}`) Ver Detalles
+    else
+      .row
+        .col-12
+          p.text-center.text-muted No hay viajes disponibles en este momento.
+    
+    .row.mt-5
+      .col-12
+        a.btn.btn-primary.d-block.mx-auto(href="/viajes" style="max-width: 300px;") Ver Todos los Viajes
+
+  if sugerencias && sugerencias.length > 0
+    section.testimoniales.mt-5.py-5.bg-light
+      .container
+        .row
+          .col-12
+            h2.text-center.mb-5 Testimonios de Viajeros
+
+        .row
+          each sug in sugerencias
+            .col-md-4.mb-4
+              .card.h-100.border-0.shadow-sm
+                .card-body
+                  p.card-text.mb-4= sug.mensaje
+                  hr
+                  footer.mt-3
+                    strong.d-block.text-primary= sug.nombre
+                    small.text-muted= sug.correo

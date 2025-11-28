@@ -1,0 +1,43 @@
+extends layout/index.pug
+
+block contenido
+  main.container.mt-5
+    .row.mb-5
+      .col-12
+        h1.text-center.mb-4= pagina
+        p.text-center.lead Explora nuestros destinos más populares y encuentra tu próxima aventura
+
+    if viajes && viajes.length
+      .row
+        each viaje in viajes
+          .col-md-6.col-lg-4.mb-4
+            .card.h-100.shadow-sm
+              img.card-img-top(src=`/img/${viaje.imagen}` alt=viaje.titulo style="height: 250px; object-fit: cover;")
+              .card-body
+                h3.card-title= viaje.titulo
+                p.card-text
+                  i.fas.fa-map-marker-alt.me-2
+                  = viaje.titulo
+                p.card-text
+                  i.fas.fa-calendar-alt.me-2
+                  | Salida: #{new Date(viaje.fecha_ida).toLocaleDateString('es-ES')}
+                p.card-text
+                  i.fas.fa-calendar-check.me-2
+                  | Regreso: #{new Date(viaje.fecha_vuelta).toLocaleDateString('es-ES')}
+                p.card-text
+                  i.fas.fa-users.me-2
+                  | Disponibles: #{viaje.disponibles} lugares
+                p.card-text
+                  i.fas.fa-dollar-sign.me-2
+                  strong.text-primary= viaje.precio
+              .card-footer.bg-white.border-top-0
+                a.btn.btn-success.w-100(href=`/viajes/${viaje.slug}`) Ver Más Información
+    else
+      .row
+        .col-12
+          .alert.alert-info.text-center(role="alert")
+            h4.alert-heading ¡Próximamente!
+            p No hay viajes programados en este momento, pero estamos preparando nuevas aventuras para ti.
+            hr
+            p.mb-0 Déjanos tus sugerencias para futuros destinos.
+            a.btn.btn-primary.mt-3(href="/sugerencias") Enviar Sugerencia

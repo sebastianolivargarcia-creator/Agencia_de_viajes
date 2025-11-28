@@ -1,0 +1,31 @@
+extends layout/index.pug
+
+block contenido
+  main.container.mt-5
+    .row.mb-5
+      .col-md-5.mb-4.mb-md-0
+        img(src="/img/nosotros.jpg" alt="imagen sobre nosotros" class="img-fluid rounded shadow")
+      .col-md-7
+        h1.mb-4= pagina
+        blockquote.blockquote
+          p.mb-3 Somos una agencia de viajes comprometida con hacer realidad tus sueños de explorar el mundo.
+          p.mb-3 Con más de 10 años de experiencia, hemos ayudado a miles de viajeros a descubrir destinos increíbles con la mejor calidad y servicio.
+          p Nuestro equipo está formado por expertos apasionados por los viajes, listos para crear experiencias inolvidables adaptadas a tus necesidades.
+
+  section.listado-iconos.py-5
+    .container
+      .row.text-center
+        .col-md-4.mb-4
+          img(src="/img/icono_seguridad.svg" alt="icono seguridad" class="img-fluid mb-3" style="height: 100px;")
+          h2.mb-3 Seguridad
+          p Garantizamos la seguridad de nuestros clientes en cada viaje con protocolos estrictos y seguros de viaje.
+
+        .col-md-4.mb-4
+          img(src="/img/icono_destinos.svg" alt="icono destinos" class="img-fluid mb-3" style="height: 100px;")
+          h2.mb-3 Mejores Destinos
+          p Seleccionamos cuidadosamente los destinos más hermosos y emocionantes del mundo para ti.
+
+        .col-md-4.mb-4
+          img(src="/img/icono_precios.svg" alt="icono precios" class="img-fluid mb-3" style="height: 100px;")
+          h2.mb-3 Mejores Precios
+          p Ofrecemos tarifas competitivas sin comprometer la calidad del servicio y la experiencia.

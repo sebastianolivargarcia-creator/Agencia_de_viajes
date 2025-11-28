@@ -1,0 +1,43 @@
+/* Mejoras adicionales */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.testimoniales .card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+footer {
+    background-color: #f8f9fa;
+    border-top: 3px solid #15B9D5;
+}
+
+.form-control:focus {
+    border-color: #15B9D5;
+    box-shadow: 0 0 0 0.2rem rgba(21, 185, 213, 0.25);
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+.lead {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+/* Iconos FontAwesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
